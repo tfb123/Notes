@@ -38,7 +38,6 @@ public class MainActivity extends AppCompatActivity {
 
         if (item.getItemId() == R.id.add_note) {
 
-            // Going from MainActivity to NotesEditorActivity
             Intent intent = new Intent(getApplicationContext(), NoteEditorActivity.class);
             startActivity(intent);
             return true;
@@ -63,7 +62,6 @@ public class MainActivity extends AppCompatActivity {
             notes = new ArrayList(set);
         }
 
-        // Using custom listView Provided by Android Studio
         arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_expandable_list_item_1, notes);
 
         listView.setAdapter(arrayAdapter);
@@ -72,7 +70,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
-                // Going from MainActivity to NotesEditorActivity
                 Intent intent = new Intent(getApplicationContext(), NoteEditorActivity.class);
                 intent.putExtra("noteId", i);
                 startActivity(intent);
@@ -85,7 +82,6 @@ public class MainActivity extends AppCompatActivity {
             public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
 
                 final int itemToDelete = i;
-                // To delete the data from the App
                 new AlertDialog.Builder(MainActivity.this)
                         .setIcon(android.R.drawable.ic_dialog_alert)
                         .setTitle("Are you sure?")
